@@ -10,76 +10,184 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #8c8e8f, #0c908e);
             color: #fff;
+            overflow-x: hidden;
         }
+
+        /* Parallax Background Effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?abstract');
+            background-size: cover;
+            background-attachment: fixed;
+            filter: blur(5px) brightness(0.7);
+            z-index: -1;
+        }
+
         .profile-container {
             width: 90%;
             max-width: 600px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9);
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             padding: 20px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-in-out forwards;
+            transform: translateY(100px);
+            opacity: 0;
+            position: relative;
+            z-index: 2;
         }
+
+        /* Slide-in animation */
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .profile-header {
-            background-color: #0056b3;
+            background: linear-gradient(45deg, #2b333b, #b9bbbc);
             padding: 20px;
             text-align: center;
-            border-bottom: 4px solid #0072ff;
+            border-bottom: 4px solid #ffffff;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
         }
+
         .profile-header h2 {
             margin: 0;
             font-size: 2.5em;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            letter-spacing: 2px;
+            transform: scale(0.9);
+            animation: growText 1s ease forwards;
         }
+
+        /* Header Text Animation */
+        @keyframes growText {
+            to {
+                transform: scale(1);
+            }
+        }
+
         .profile-info {
             padding: 20px;
-            text-align: center; /* Center the text */
+            text-align: center;
         }
+
         .info-item {
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             padding: 15px;
-            margin: 10px 0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
+
+        /* 3D hover effect */
+        .info-item:hover {
+            transform: scale(1.1) rotateX(10deg) rotateY(10deg);
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
         .info-label {
-            color: #0072ff;
+            color: #000000;
             font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
+
         .info-value {
             display: block;
-            color: #00aaff;
+            color: #fafafa;
             margin-top: 5px;
+            font-size: 1.2em;
+            letter-spacing: 1px;
         }
+
         .social-media {
-            text-align: center; /* Keep social media centered */
+            text-align: center;
             margin-top: 20px;
+            position: relative;
+            z-index: 3;
         }
+
+        /* Social media icon animation */
         .social-media a {
-            margin: 0 10px;
+            margin: 0 15px;
             padding: 10px;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #0072ff;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7a7a7a, #bababa);
+            color: rgb(0, 0, 0);
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-            font-size: 24px; /* Size of the icons */
+            transition: transform 0.4s, box-shadow 0.3s ease, background-color 0.4s;
+            font-size: 30px; /* Size of the icons */
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px; /* Center the icon vertically */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
+
+        .social-media a::before {
+            content: "";
+            position: absolute;
+            top: -120%;
+            left: -120%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+
+        .social-media a:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+
         .social-media a:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            transform: scale(1.1);
+            transform: scale(1.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
+
         /* Media Queries */
         @media only screen and (max-width: 768px) {
             .profile-container {
-                margin: 20px auto;
+                margin: 40px auto;
+            }
+
+            .social-media a {
+                font-size: 24px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
             }
         }
+
         @media only screen and (max-width: 480px) {
             .profile-container {
-                margin: 10px auto;
+                margin: 30px auto;
+            }
+
+            .social-media a {
+                font-size: 20px;
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
             }
         }
     </style>
@@ -91,31 +199,31 @@
         </div>
         <div class="profile-info">
             <div class="info-item">
-                <span class="info-label">Name:</span>
+                <span class="info-label">NAME</span>
                 <span class="info-value">ZAKKY RAHMAN</span>
             </div>
             <div class="info-item">
-                <span class="info-label">Email:</span>
+                <span class="info-label">EMAIL</span>
                 <span class="info-value">zkkyrhmn@gmail.com</span>
             </div>
             <div class="info-item">
-                <span class="info-label">Phone:</span>
+                <span class="info-label">PHONE</span>
                 <span class="info-value">0812 5259 6062</span>
             </div>
             <div class="info-item">
-                <span class=" info-label">Address:</span>
-                <span class="info-value">Kahuripan Nirwana, Sidoarjo </span>
+                <span class="info-label">ADDRESS</span>
+                <span class="info-value">Kahuripan Nirwana, Sidoarjo</span>
             </div>
         </div>
         <div class="social-media">
             <a href="https://www.instagram.com/zakkyrahmn/" target="_blank">
-                <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                <i class="fab fa-instagram"></i>
             </a>
             <a href="https://www.tiktok.com/@.uncontrol?_t=8qaM4hKvHue&_r=1" target="_blank">
-                <i class="fab fa-tiktok" style="color: #69C9D0;"></i>
+                <i class="fab fa-tiktok"></i>
             </a>
             <a href="https://wa.me/+6281252596062" target="_blank">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                <i class="fab fa-whatsapp"></i>
             </a>
         </div>
     </div>
