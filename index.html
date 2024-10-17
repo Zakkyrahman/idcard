@@ -9,72 +9,66 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #00c6ff, #0072ff); /* gradient background */
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             color: #fff;
         }
         .profile-container {
             width: 90%;
             max-width: 600px;
             margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             padding: 20px;
         }
         .profile-header {
-            background-color: #0072ff; /* blue header */
+            background-color: #0056b3;
             padding: 20px;
             text-align: center;
+            border-bottom: 4px solid #0072ff;
         }
-        .profile-header img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto;
+        .profile-header h2 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         .profile-info {
             padding: 20px;
-            color: #333; /* dark text for readability */
+            text-align: center; /* Center the text */
         }
-        .profile-info p {
-            margin: 15px 0;
-            font-size: 1.2em;
+        .info-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            color: #0056b3;
         }
-        .profile-info strong {
-            color: #0072ff; /* blue color for labels */
-            display: inline-block;
-            width: 100px;
-            text-align: right;
+        .info-label {
+            color: #0072ff;
+            font-weight: bold;
         }
-        .profile-info span {
-            display: inline-block;
-            width: calc(100% - 100px);
+        .info-value {
+            display: block;
+            color: #00bbff;
+            margin-top: 5px;
         }
         .social-media {
-            text-align: center;
+            text-align: center; /* Keep social media centered */
             margin-top: 20px;
         }
         .social-media a {
             margin: 0 10px;
-        }
-        .instagram {
-            /* background-image: url('https://cdn-icons-png.flaticon.com/512/174/174855.png'); */
-            background-size: 20px 20px;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding-left: 25px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
             color: #0072ff;
             text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .tiktok {
-            /* background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png'); */
-            background-size: 20px 20px;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding-left: 25px;
-            color: #0072ff;
-            text-decoration: none;
+        .social-media a:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
         }
         /* Media Queries */
         @media only screen and (max-width: 768px) {
@@ -92,19 +86,33 @@
 <body>
     <div class="profile-container">
         <div class="profile-header">
-           <h2 class="profile-name">DISNAKERTRANS </h2>
+            <h2 class="profile-name">ZAKKY RAHMAN</h2>
         </div>
         <div class="profile-info">
-            <p><strong>Name:</strong><span> ZAKKY RAHMAN</span></p>
-            <p><strong>Email:</strong><span> zkkyrhmn@gmail.com</span></p>
-            <p><strong>Phone:</strong><span> 0812 5259 6062</span></p>
-            <p><strong>Address:</strong><span> SIDOARJO</span></p>
-            <p><strong>Birthdate:</strong><span> 11-10-2006</span></p>
-            <div class="social-media">
-                <a href="https://www.instagram.com/zakkyrahmn" class="instagram" target="_blank">INSTAGRAM</a>
-                <a href="https://www.tiktok.com/@.uncontrol?_t=8qaM4hKvHue&_r=1" class="tiktok" target="_blank">TIKTOK</a>
+            <div class="info-item">
+                <span class="info-label">SMKN 2 BUDURAN</span>
+                <!-- <span class="info-value">ZAKKY RAHMAN</span> -->
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span class="info-value">zkkyrhmn@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Phone:</span>
+                <span class="info-value">0812 5259 6062</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Address:</span>
+                <span class="info-value">SIDOARJO</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Birthdate:</span>
+                <span class="info-value">11-10-2006</span>
             </div>
         </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/zakkyrahmn" target="_blank">INSTAGRAM</a>
+            <a href="https://www.tiktok.com/@.uncontrol?_t=8qaM4hKvHue&_r=1" target="_blank">TIKTOK</a>
+        </div>
     </div>
-</body>
-</html>
+</
